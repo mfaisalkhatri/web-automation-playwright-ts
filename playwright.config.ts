@@ -1,4 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
+import demo from "./env/demo.env"
+import preprod from "./env/preprod.env"
 
 /**
  * Read environment variables from file.
@@ -35,19 +37,23 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      name: 'demo',
+      use: { ...devices['Desktop Chrome'],
+        baseURL: demo.baseURL
+       },
     },
 
     {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      name: 'preprod',
+      use: { ...devices['Desktop Firefox'],
+        baseURL: preprod.baseURL
+       },
     },
 
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
+    // {
+    //   name: 'webkit',
+    //   use: { ...devices['Desktop Safari'] },
+    // },
 
     /* Test against mobile viewports. */
     // {
