@@ -1,6 +1,9 @@
-import { defineConfig, devices } from '@playwright/test';
-import demo from "./env/demo.env"
-import preprod from "./env/preprod.env"
+import { defineConfig, devices } from "@playwright/test";
+import demo from "./env/demo.env";
+import preprod from "./env/preprod.env";
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 /**
  * Read environment variables from file.
@@ -14,7 +17,7 @@ import preprod from "./env/preprod.env"
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: './tests',
+  testDir: "./tests",
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -24,30 +27,35 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: "html",
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    trace: "on-first-retry",
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'demo',
-      use: { ...devices['Desktop Chrome'],
-        baseURL: demo.baseURL
-       },
+      name: "demo",
+      use: { ...devices["Desktop Chrome"], baseURL: demo.baseURL },
+      metadata: {
+        username: demo.username,
+        password: demo.password
+      }
     },
 
     {
-      name: 'preprod',
-      use: { ...devices['Desktop Firefox'],
-        baseURL: preprod.baseURL
-       },
+      name: "preprod",
+      use: { ...devices["Desktop Firefox"], baseURL: preprod.baseURL },
+    },
+
+    {
+      name: "env_variable",
+      use: { ...devices["Desktop Chrome"], baseURL: process.env.PREPROD_URL },
     },
 
     // {
