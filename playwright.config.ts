@@ -1,7 +1,7 @@
 import { defineConfig, devices } from "@playwright/test";
 import demo from "./env/demo.env";
 import preprod from "./env/preprod.env";
-import * as dotenv from 'dotenv';
+import * as dotenv from "dotenv";
 
 dotenv.config();
 
@@ -44,8 +44,8 @@ export default defineConfig({
       use: { ...devices["Desktop Chrome"], baseURL: demo.baseURL },
       metadata: {
         username: demo.username,
-        password: demo.password
-      }
+        password: demo.password,
+      },
     },
 
     {
@@ -56,6 +56,11 @@ export default defineConfig({
     {
       name: "env_variable",
       use: { ...devices["Desktop Chrome"], baseURL: process.env.PREPROD_URL },
+    },
+
+    {
+      name: "Chrome",
+      use: { ...devices["Desktop Chrome"] },
     },
 
     // {
