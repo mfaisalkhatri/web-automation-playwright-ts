@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test",
-    "test-demo-env": "npx playwright test --project=demo"
+    "test-demo-env": "npx playwright test --project=demo",
+    "test-chatapp": "npx playwright test /tests/chat-app.spec.ts --project=chrome"
 
   },
   "keywords": [],

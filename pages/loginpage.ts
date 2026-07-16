@@ -15,9 +15,9 @@ export class LoginPage {
     this.name = page.getByPlaceholder("Enter your name");
     this.location = page.getByPlaceholder("Enter your location");
     this.age = page.locator("input#age");
-    this.chatRoom = page.locator("input#chat-room");
+    this.chatRoom = page.locator("#chat-room");
     this.agreeTerms = page.locator("input#terms");
-    this.startChat = page.locator("start-chat");
+    this.startChat = page.getByRole('button', { name: 'Start Chatting' })
   }
 
   async loginUser(user: LoginUser) {
@@ -25,7 +25,7 @@ export class LoginPage {
     await this.location.fill(user.location);
     await this.age.fill(user.age);
     await this.chatRoom.selectOption({ value: user.chatRoom });
-    await this.page.getByRole("radio", { name: user.gender }).check();
+    await this.page.getByRole("radio", { name: user.gender, exact:true }).check();
     await this.agreeTerms.click();
     await this.startChat.click();
   }
