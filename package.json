@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "npx playwright test",
+    "test-demo-env": "npx playwright test --project=demo",
+    "test-chatapp": "npx playwright test /tests/chat-app.spec.ts --project=chrome"
+
+  },
   "keywords": [],
   "type": "commonjs",
   "devDependencies": {

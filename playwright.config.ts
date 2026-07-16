@@ -1,7 +1,7 @@
 import { defineConfig, devices } from "@playwright/test";
 import demo from "./env/demo.env";
 import preprod from "./env/preprod.env";
-import * as dotenv from 'dotenv';
+import * as dotenv from "dotenv";
 
 dotenv.config();
 
@@ -17,7 +17,7 @@ dotenv.config();
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: "./tests",
+  testDir: "./tests/",
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -25,7 +25,7 @@ export default defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  workers: process.env.CI ? 2 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: "html",
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
@@ -44,8 +44,8 @@ export default defineConfig({
       use: { ...devices["Desktop Chrome"], baseURL: demo.baseURL },
       metadata: {
         username: demo.username,
-        password: demo.password
-      }
+        password: demo.password,
+      },
     },
 
     {
@@ -56,6 +56,11 @@ export default defineConfig({
     {
       name: "env_variable",
       use: { ...devices["Desktop Chrome"], baseURL: process.env.PREPROD_URL },
+    },
+
+    {
+      name: "chrome",
+      use: { ...devices["Desktop Chrome"] },
     },
 
     // {
