@@ -1,6 +1,6 @@
 import { LoginUser } from "../models/LoginUser";
 
-export const userOne: LoginUser = {
+export const john: LoginUser = {
   name: "John Doe",
   location: "London",
   age: "32",
@@ -8,7 +8,7 @@ export const userOne: LoginUser = {
   gender: "Male",
 };
 
-export const userTwo: LoginUser = {
+export const jane: LoginUser = {
   name: "Jane Doe",
   location: "Paris",
   age: "30",
