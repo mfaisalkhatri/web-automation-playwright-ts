@@ -1,5 +1,5 @@
 import { defineConfig, devices } from "@playwright/test";
-import demo from "./env/demo.env";
+import qa from "./env/qa.env";
 import preprod from "./env/preprod.env";
 import * as dotenv from "dotenv";
 
@@ -40,11 +40,11 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: "demo",
-      use: { ...devices["Desktop Chrome"], baseURL: demo.baseURL },
+      name: "qa",
+      use: { ...devices["Desktop Chrome"], baseURL: qa.baseURL },
       metadata: {
-        username: demo.username,
-        password: demo.password,
+        username: qa.username,
+        password: qa.password,
       },
     },
 
