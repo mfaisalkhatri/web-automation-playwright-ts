@@ -6,7 +6,8 @@
   "scripts": {
     "test": "npx playwright test",
     "test-demo-env": "npx playwright test --project=demo",
-    "test-chatapp": "npx playwright test /tests/chat-app.spec.ts --project=chrome"
+    "test-chatapp": "npx playwright test /tests/chat-app.spec.ts --project=chrome",
+    "test-parabank": "npx playwright test /tests/parabank.test.ts --project=chromium --headed"
 
   },
   "keywords": [],

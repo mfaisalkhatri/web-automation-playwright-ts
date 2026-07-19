@@ -1,0 +1,33 @@
+{
+  "registrationPage": {
+    "heading": "Signing up is easy!",
+    "welcomeMessage": "Welcome ",
+    "successMessage": "Your account was created successfully. You are now logged in."
+  },
+  "loginPage": {
+    "heading": "Accounts Overview",
+    "successMessage": "Welcome "
+  },
+  "openNewAccountPage": {
+    "heading": "Open New Account",
+    "successMessage": "Congratulations, your account is now open."
+  },
+  "accountsOverviewPage": {
+    "heading": "Accounts Overview",
+    "initialBalance": "$100.00"
+  },
+  "transferFundsPage": {
+    "heading": "Transfer Funds",
+    "transferAmount": "2"
+  },
+  "billPaymentPage": {
+    "heading": "Bill Payment Service",
+    "amount": "3"
+  },
+  "globalMenuUrl": {
+    "AboutUs": "https://parabank.parasoft.com/parabank/about.htm",
+    "Services": "https://parabank.parasoft.com/parabank/services.htm",
+    "Products": "https://www.parasoft.com/products/",
+    "Locations": "https://www.parasoft.com/solutions/",
+    "AdminPage": "https://parabank.parasoft.com/parabank/admin.htm"
+  }}
