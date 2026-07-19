@@ -6,14 +6,19 @@
   "scripts": {
     "test": "npx playwright test",
     "test-demo-env": "npx playwright test --project=demo",
-    "test-chatapp": "npx playwright test /tests/chat-app.spec.ts --project=chrome"
-
+    "test-chatapp": "npx playwright test /tests/chat-app.spec.ts --project=chrome",
+    "test-parabank": "npx playwright test /tests/parabank.test.ts --project=chromium --headed",
+    "test-parabank-registration": "npx playwright test /tests/parabank.registration.spec.ts --project=chrome --headed"
   },
   "keywords": [],
   "type": "commonjs",
   "devDependencies": {
     "@playwright/test": "^1.61.1",
     "@types/node": "^26.1.1",
-    "dotenv": "^17.4.2"
+    "dotenv": "^17.4.2",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^9.9.0"
   }
 }
