@@ -56,6 +56,10 @@ export default defineConfig({
     {
       name: "env_variable",
       use: { ...devices["Desktop Chrome"], baseURL: process.env.PREPROD_URL },
+      metadata: {
+        username: process.env.PREPROD_USERNAME,
+        password: process.env.PREPROD_PASSWORD,
+      },
     },
 
     {

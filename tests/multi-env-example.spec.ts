@@ -5,6 +5,9 @@ test('has title', async ({ page }) => {
   console.log(page.url());
 
   await expect(page).toHaveTitle("TodoMVC: React");
+  console.log(process.env.PREPROD_USERNAME);
+  console.log(process.env.PREPROD_PASSWORD);
+
 
 });
 
