@@ -32,13 +32,13 @@ test("browser context example", async ({}) => {
   await browser.close();
 });
 
-test('Multiple page in the same context', async({}) => {
-const browser = await chromium.launch({headless: false});
-const context = await browser.newContext();
+test("Multiple page in the same context", async ({}) => {
+  const browser = await chromium.launch({ headless: false });
+  const context = await browser.newContext();
 
-const homePage = await context.newPage();
-const docsPage = await context.newPage();
+  const homePage = await context.newPage();
+  const docsPage = await context.newPage();
 
-await homePage.goto("https://playwright.dev");
-await docsPage.goto("https://playwright.dev/docs");
+  await homePage.goto("https://playwright.dev");
+  await docsPage.goto("https://playwright.dev/docs");
 });
