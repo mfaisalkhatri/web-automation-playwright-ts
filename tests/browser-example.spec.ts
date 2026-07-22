@@ -42,3 +42,32 @@ test("Multiple page in the same context", async ({}) => {
   await homePage.goto("https://playwright.dev");
   await docsPage.goto("https://playwright.dev/docs");
 });
+
+test("browser fixture", async ({ browser }) => {
+  const context = await browser.newContext();
+
+  const page = await context.newPage();
+
+  await page.goto("https://playwright.dev");
+
+  await expect(
+    page.getByRole("heading", {
+      name: "Playwright enables reliable web automation for testing, scripting, and AI agents.",
+    }),
+  ).toBeVisible();
+});
+
+test("browser context fixture", async ({ context }) => {
+  const page = await context.newPage();
+  await page.goto("https://playwright.dev");
+  await expect(
+    page.getByRole("heading", {
+      name: "Playwright enables reliable web automation for testing, scripting, and AI agents.",
+    }),
+  ).toBeVisible();
+});
+
+test("page fixture", async ({ page }) => {
+  await page.goto("https://playwright.dev");
+  await expect(page).toHaveTitle(/Playwright/);
+});
