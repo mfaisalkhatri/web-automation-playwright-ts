@@ -11,4 +11,8 @@ export class BasePage {
   async navigateTo(path: string) {
     await this.page.goto(path);
   }
+
+  async getUrl() {
+    return this.page.url();
+  }
 }

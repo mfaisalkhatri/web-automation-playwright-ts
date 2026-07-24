@@ -1,6 +1,6 @@
 import { BasePage } from "./base-page";
 import { Page, Locator } from "@playwright/test";
-import expectedText from "../../testdata/expected-text.json";
+import expectedText from "../../test-data/expected-text.json";
 
 export class OpenNewAccountPage extends BasePage {
   readonly pageHeader: Locator;
