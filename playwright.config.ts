@@ -1,7 +1,7 @@
 import { defineConfig, devices } from "@playwright/test";
 import qa from "./env/qa.env";
 import preprod from "./env/preprod.env";
-import * as dotenv from "dotenv";
+import dotenv from "dotenv";
 
 dotenv.config();
 
@@ -40,8 +40,18 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
+      name: "setup",
+      testMatch: /.*auth\.setup\.ts/,
+    },
+
+    {
       name: "qa",
-      use: { ...devices["Desktop Chrome"], baseURL: qa.baseURL },
+      dependencies: ["setup"],
+      use: {
+        ...devices["Desktop Chrome"],
+        baseURL: qa.baseURL,
+        storageState: "playwright/.auth/user.json",
+      },
       metadata: {
         username: qa.username,
         password: qa.password,
@@ -50,6 +60,7 @@ export default defineConfig({
 
     {
       name: "preprod",
+      dependencies: ["setup"],
       use: { ...devices["Desktop Firefox"], baseURL: preprod.baseURL },
     },
 
@@ -66,13 +77,6 @@ export default defineConfig({
       name: "chrome",
       use: { ...devices["Desktop Chrome"] },
     },
-
-    {
-      name: "setup",
-
-      testMatch: /.*auth\.setup\.ts/,
-    },
-
     {
       name: "chromium",
 
