@@ -10,7 +10,7 @@ test.describe("Create Orders API", () => {
   );
 
   users.forEach((user: User) => {
-    test("Should register a new user", async ({
+    test(`Should register a new user with ${user.username}`, async ({
       basePage,
       registrationPage,
     }) => {
@@ -25,6 +25,7 @@ test.describe("Create Orders API", () => {
         registrationPage.welcomeMessageText(user.username),
       ).toBeVisible();
       await expect(registrationPage.successMessageText).toBeVisible();
+      console.log(user);
     });
   });
 });

@@ -44,7 +44,7 @@ export default defineConfig({
       testMatch: /.*auth\.setup\.ts/,
       use: {
         baseURL: qa.baseURL,
-      }
+      },
     },
 
     {
@@ -78,12 +78,15 @@ export default defineConfig({
 
     {
       name: "chrome",
-      use: { ...devices["Desktop Chrome"] },
+      use: {
+        ...devices["Desktop Chrome"],
+        baseURL: "https://parabank.parasoft.com",
+      },
     },
 
     {
       name: "firefox",
-      use: { ...devices["Desktop Firefox"],channel: 'firefox' },
+      use: { ...devices["Desktop Firefox"], channel: "firefox" },
     },
 
     // {
@@ -98,8 +101,8 @@ export default defineConfig({
     // },
 
     {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      name: "webkit",
+      use: { ...devices["Desktop Safari"] },
     },
 
     /* Test against mobile viewports. */

@@ -14,8 +14,8 @@
     "test-report-dot": "npx playwright test tests/parabank.test.ts --project=qa --reporter=dot",
     "test-report-line": "npx playwright test tests/parabank.test.ts --project=qa --reporter=line",
     "test-report-list": "npx playwright test tests/parabank.test.ts --project=qa --reporter=list",
-    "test-report-json": "npx playwright test tests/parabank.test.ts --project=qa --reporter=json"
-
+    "test-report-json": "npx playwright test tests/parabank.test.ts --project=qa --reporter=json",
+    "test-data-driven-json": "npx playwright test /tests/data-driven-test.spec.ts --project=chrome --headed"
   },
   "keywords": [],
   "type": "commonjs",
