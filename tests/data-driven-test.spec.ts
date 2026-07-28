@@ -4,7 +4,7 @@ import { test, expect } from "../fixtures/app.fixture";
 import { User } from "../models/User";
 import { getTestData } from "../utils/dataprovider";
 
-test.describe("Create Orders API", () => {
+test.describe("Data driven user registration tests", () => {
   const users: User[] = getTestData<User>(
     path.join(process.cwd(), "test-data", "user-data.json"),
   );
