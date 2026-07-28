@@ -14,3 +14,60 @@ test("browser, browsercontext and page example", async ({}) => {
   await context.close();
   await browser.close();
 });
+
+test("browser example", async ({}) => {
+  const browser = await chromium.launch({ headless: false });
+
+  await browser.close();
+});
+
+test("browser context example", async ({}) => {
+  const browser = await chromium.launch({ headless: false });
+
+  const customerContext = await browser.newContext();
+  const adminContext = await browser.newContext();
+
+  await customerContext.close();
+  await adminContext.close();
+  await browser.close();
+});
+
+test("Multiple page in the same context", async ({}) => {
+  const browser = await chromium.launch({ headless: false });
+  const context = await browser.newContext();
+
+  const homePage = await context.newPage();
+  const docsPage = await context.newPage();
+
+  await homePage.goto("https://playwright.dev");
+  await docsPage.goto("https://playwright.dev/docs");
+});
+
+test("browser fixture", async ({ browser }) => {
+  const context = await browser.newContext();
+
+  const page = await context.newPage();
+
+  await page.goto("https://playwright.dev");
+
+  await expect(
+    page.getByRole("heading", {
+      name: "Playwright enables reliable web automation for testing, scripting, and AI agents.",
+    }),
+  ).toBeVisible();
+});
+
+test("browser context fixture", async ({ context }) => {
+  const page = await context.newPage();
+  await page.goto("https://playwright.dev");
+  await expect(
+    page.getByRole("heading", {
+      name: "Playwright enables reliable web automation for testing, scripting, and AI agents.",
+    }),
+  ).toBeVisible();
+});
+
+test("page fixture", async ({ page }) => {
+  await page.goto("https://playwright.dev");
+  await expect(page).toHaveTitle(/Playwright/);
+});

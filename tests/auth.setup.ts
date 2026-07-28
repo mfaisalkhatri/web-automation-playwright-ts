@@ -3,9 +3,11 @@ import { LoginPage } from "../pages/parabank/login-page";
 import { getEnv } from '../env/envloader';
 
 setup("Authenticate User", async ({ page }) => {
-  const username = getEnv("PARABANK_USERNAME");
-  const password = getEnv("PARABANK_PASSWORD");
+  const username:string = getEnv("PARABANK_USERNAME");
+  const password:string = getEnv("PARABANK_PASSWORD");
 
+  // const username:string = process.env.PARABANK_USERNAME
+  // const password:string = process.env.PARABANK_PASSWORD
 
   await page.goto("/parabank/index.htm");
 

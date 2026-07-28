@@ -3,7 +3,7 @@ import { test as base } from '@playwright/test';
 import { BasePage } from '../pages/parabank/base-page';
 import { RegistrationPage } from '../pages/parabank/registration-page';
 import { OpenNewAccountPage } from '../pages/parabank/open-new-account-page';
-import { UserData } from '../testdata/UserData';
+import { UserData } from '../test-data/UserData';
 
 type AppFixtures = {
     basePage: BasePage;

@@ -1,7 +1,7 @@
 import { BasePage } from "./base-page";
 import { Page, Locator } from "@playwright/test";
-import { UserData } from "../../testdata/UserData";
-import expectedText from "../../testdata/expected-text.json";
+import { UserData } from "../../test-data/UserData";
+import expectedText from "../../test-data/expected-text.json";
 
 export class RegistrationPage extends BasePage {
   readonly pageHeader: Locator;

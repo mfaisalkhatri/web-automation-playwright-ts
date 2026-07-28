@@ -1,7 +1,7 @@
 import { defineConfig, devices } from "@playwright/test";
 import qa from "./env/qa.env";
 import preprod from "./env/preprod.env";
-import * as dotenv from "dotenv";
+import dotenv from "dotenv";
 
 dotenv.config();
 
@@ -31,7 +31,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
-    baseURL: "https://parabank.parasoft.com",
+    //baseURL: "https://parabank.parasoft.com",
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
@@ -40,8 +40,21 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
+      name: "setup",
+      testMatch: /.*auth\.setup\.ts/,
+      use: {
+        baseURL: qa.baseURL,
+      }
+    },
+
+    {
       name: "qa",
-      use: { ...devices["Desktop Chrome"], baseURL: qa.baseURL },
+      dependencies: ["setup"],
+      use: {
+        ...devices["Desktop Chrome"],
+        baseURL: qa.baseURL,
+        storageState: "playwright/.auth/user.json",
+      },
       metadata: {
         username: qa.username,
         password: qa.password,
@@ -50,12 +63,17 @@ export default defineConfig({
 
     {
       name: "preprod",
+      dependencies: ["setup"],
       use: { ...devices["Desktop Firefox"], baseURL: preprod.baseURL },
     },
 
     {
       name: "env_variable",
       use: { ...devices["Desktop Chrome"], baseURL: process.env.PREPROD_URL },
+      metadata: {
+        username: process.env.PREPROD_USERNAME,
+        password: process.env.PREPROD_PASSWORD,
+      },
     },
 
     {
@@ -64,26 +82,25 @@ export default defineConfig({
     },
 
     {
-      name: "setup",
-
-      testMatch: /.*auth\.setup\.ts/,
-    },
-
-    {
-      name: "chromium",
-
-      dependencies: ["setup"],
-
-      use: {
-        ...devices["Desktop Chrome"],
-        storageState: "playwright/.auth/user.json",
-      },
+      name: "firefox",
+      use: { ...devices["Desktop Firefox"],channel: 'firefox' },
     },
 
     // {
-    //   name: 'webkit',
-    //   use: { ...devices['Desktop Safari'] },
+    //   name: "chromium",
+
+    //   dependencies: ["setup"],
+
+    //   use: {
+    //     ...devices["Desktop Chrome"],
+    //     storageState: "playwright/.auth/user.json",
+    //   },
     // },
+
+    {
+      name: 'webkit',
+      use: { ...devices['Desktop Safari'] },
+    },
 
     /* Test against mobile viewports. */
     // {
