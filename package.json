@@ -13,7 +13,8 @@
     "test-report-blob": "npx playwright test tests/parabank.test.ts --project=qa --reporter=blob",
     "test-report-dot": "npx playwright test tests/parabank.test.ts --project=qa --reporter=dot",
     "test-report-line": "npx playwright test tests/parabank.test.ts --project=qa --reporter=line",
-    "test-report-list": "npx playwright test tests/parabank.test.ts --project=qa --reporter=line"
+    "test-report-list": "npx playwright test tests/parabank.test.ts --project=qa --reporter=list",
+    "test-report-json": "npx playwright test tests/parabank.test.ts --project=qa --reporter=json"
 
   },
   "keywords": [],
