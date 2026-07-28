@@ -2,6 +2,7 @@ import { BasePage } from "./base-page";
 import { Page, Locator } from "@playwright/test";
 import { UserData } from "../../test-data/UserData";
 import expectedText from "../../test-data/expected-text.json";
+import {User} from '../../models/User'
 
 export class RegistrationPage extends BasePage {
   readonly pageHeader: Locator;
@@ -57,6 +58,22 @@ export class RegistrationPage extends BasePage {
     await this.confirmPasswordInput.fill(password);
     await this.registerButton.click();
   }
+
+  async userRegistration(user:User) {
+    await this.firstNameInput.fill(user.firstName);
+    await this.lastNameInput.fill(user.lastName);
+    await this.addressInput.fill(user.address);
+    await this.cityInput.fill(user.city);
+    await this.stateInput.fill(user.state);
+    await this.zipCodeInput.fill(user.zipCode);
+    await this.phoneNumberInput.fill(user.phoneNumber);
+    await this.ssnInput.fill(user.ssn);
+    await this.usernameInput.fill(user.username);
+    await this.passwordInput.fill(user.password);
+    await this.confirmPasswordInput.fill(user.password);
+    await this.registerButton.click();
+  }
+
 
   welcomeMessageText(userName: string): Locator {
     return this.page.getByText(`Welcome ${userName}`);
