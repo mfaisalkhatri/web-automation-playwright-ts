@@ -1,0 +1,62 @@
+[
+  {
+    "firstName": "John",
+    "lastName": "Doe",
+    "address": "123 Maple Street",
+    "city": "New York",
+    "state": "NY",
+    "zipCode": "10001",
+    "phoneNumber": "2125550101",
+    "ssn": "123456789",
+    "username": "john.doe01",
+    "password": "Password@123"
+  },
+  {
+    "firstName": "Emma",
+    "lastName": "Johnson",
+    "address": "456 Oak Avenue",
+    "city": "Los Angeles",
+    "state": "CA",
+    "zipCode": "90001",
+    "phoneNumber": "3105550202",
+    "ssn": "234567890",
+    "username": "emma.johnson02",
+    "password": "Password@123"
+  },
+  {
+    "firstName": "Michael",
+    "lastName": "Williams",
+    "address": "789 Pine Road",
+    "city": "Chicago",
+    "state": "IL",
+    "zipCode": "60601",
+    "phoneNumber": "3125550303",
+    "ssn": "345678901",
+    "username": "michael.williams03",
+    "password": "Password@123"
+  },
+  {
+    "firstName": "Sophia",
+    "lastName": "Brown",
+    "address": "321 Cedar Lane",
+    "city": "Houston",
+    "state": "TX",
+    "zipCode": "77001",
+    "phoneNumber": "7135550404",
+    "ssn": "456789012",
+    "username": "sophia.brown04",
+    "password": "Password@123"
+  },
+  {
+    "firstName": "David",
+    "lastName": "Miller",
+    "address": "654 Birch Drive",
+    "city": "Phoenix",
+    "state": "AZ",
+    "zipCode": "85001",
+    "phoneNumber": "6025550505",
+    "ssn": "567890123",
+    "username": "david.miller05",
+    "password": "Password@123"
+  }
+]

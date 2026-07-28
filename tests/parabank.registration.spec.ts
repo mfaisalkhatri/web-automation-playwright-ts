@@ -1,4 +1,3 @@
-import { base } from "@faker-js/faker";
 import { test, expect } from "../fixtures/app.fixture";
 import { UserData } from "../test-data/UserData";
 
