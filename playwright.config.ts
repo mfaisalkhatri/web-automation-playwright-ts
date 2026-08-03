@@ -25,7 +25,7 @@ export default defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 2 : undefined,
+  workers: process.env.CI ? 4 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: "html",
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
@@ -39,42 +39,42 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-    {
-      name: "setup",
-      testMatch: /.*auth\.setup\.ts/,
-      use: {
-        baseURL: qa.baseURL,
-      },
-    },
+    // {
+    //   name: "setup",
+    //   testMatch: /.*auth\.setup\.ts/,
+    //   use: {
+    //     baseURL: qa.baseURL,
+    //   },
+    // },
 
-    {
-      name: "qa",
-      dependencies: ["setup"],
-      use: {
-        ...devices["Desktop Chrome"],
-        baseURL: qa.baseURL,
-        storageState: "playwright/.auth/user.json",
-      },
-      metadata: {
-        username: qa.username,
-        password: qa.password,
-      },
-    },
+    // {
+    //   name: "qa",
+    //   dependencies: ["setup"],
+    //   use: {
+    //     ...devices["Desktop Chrome"],
+    //     baseURL: qa.baseURL,
+    //     storageState: "playwright/.auth/user.json",
+    //   },
+    //   metadata: {
+    //     username: qa.username,
+    //     password: qa.password,
+    //   },
+    // },
 
-    {
-      name: "preprod",
-      dependencies: ["setup"],
-      use: { ...devices["Desktop Firefox"], baseURL: preprod.baseURL },
-    },
+    // {
+    //   name: "preprod",
+    //   dependencies: ["setup"],
+    //   use: { ...devices["Desktop Firefox"], baseURL: preprod.baseURL },
+    // },
 
-    {
-      name: "env_variable",
-      use: { ...devices["Desktop Chrome"], baseURL: process.env.PREPROD_URL },
-      metadata: {
-        username: process.env.PREPROD_USERNAME,
-        password: process.env.PREPROD_PASSWORD,
-      },
-    },
+    // {
+    //   name: "env_variable",
+    //   use: { ...devices["Desktop Chrome"], baseURL: process.env.PREPROD_URL },
+    //   metadata: {
+    //     username: process.env.PREPROD_USERNAME,
+    //     password: process.env.PREPROD_PASSWORD,
+    //   },
+    // },
 
     {
       name: "chrome",
