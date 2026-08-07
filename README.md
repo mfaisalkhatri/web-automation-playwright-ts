@@ -29,12 +29,6 @@ This project contains the example code shown for performing Web Automation Testi
        width="300">
 </a>
 
-## :question: Need Assistance?
-
-- Discuss your queries by writing to me @ `mohammadfaisalkhatri@gmail.com`
-  OR ping me on any of the social media sites using the below link:
-   - [Linktree](https://linktr.ee/faisalkhatri)
-
 ## TroubleShooting Playwright Failures
 
 Problem | Fix
@@ -47,7 +41,11 @@ Auth pop-ups blocked | Handle via context.on('dialog', ...)
 CI-only failures | Run with --debug locally, compare traces
 Test failures | Use --debug to debug the tests for failures
 
+## :question: Need Assistance?
 
+- Discuss your queries by writing to me @ `mohammadfaisalkhatri@gmail.com`
+  OR ping me on any of the social media sites using the below link:
+   - [Linktree](https://linktr.ee/faisalkhatri)
 
 ## :computer: Paid Trainings
 
