@@ -1,23 +1,37 @@
-import { test } from "@playwright/test";
+import { test, expect } from "@playwright/test";
 
-test("modify request headers / body", async ({ page }) => {
-  await page.route("**/api/**", async (route) => {
+test("modify request headers and body", async ({ page }) => {
+  await page.route("**/post", async (route) => {
+    const request = route.request();
+
     const headers = {
-      ...route.request().headers(),
-      Authorization: "Bearer fake-token-123",
-      "X-Custom-Header": "playwright",
+      ...request.headers(),
+      Authorization: "Bearer test-token-123",
+      "X-Feature-Flag": "new-checkout",
     };
 
-    // Optional: change POST body
-    let postData = route.request().postData();
-    if (route.request().method() === "POST" && postData) {
+    let postData = request.postData();
+
+    if (postData) {
       const body = JSON.parse(postData);
       body.testMode = true;
       postData = JSON.stringify(body);
     }
 
-    await route.continue({ headers, postData });
+    await route.continue({
+      headers,
+      postData,
+    });
   });
 
-  await page.goto("https://example.com");
+  const response = await page.request.post("https://httpbin.org/post", {
+    data: {
+      product: "iPhone",
+      quantity: 1,
+    },
+  });
+
+  const responseBody = await response.json();
+
+  console.log(responseBody);
 });
