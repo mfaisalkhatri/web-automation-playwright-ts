@@ -1,37 +1,36 @@
 import { test, expect } from "@playwright/test";
 
-test("modify request headers and body", async ({ page }) => {
-  await page.route("**/post", async (route) => {
-    const request = route.request();
-
+test("modify headers + rename fruit + add new fruit", async ({ page }) => {
+  await page.route("**/api/v1/fruits", async (route) => {
     const headers = {
-      ...request.headers(),
-      Authorization: "Bearer test-token-123",
-      "X-Feature-Flag": "new-checkout",
+      ...route.request().headers(),
+      Authorization: "Bearer fake-token-123",
+      "X-Custom-Header": "playwright",
     };
 
-    let postData = request.postData();
+    const response = await route.fetch({ headers });
+    const fruits = await response.json();
 
-    if (postData) {
-      const body = JSON.parse(postData);
-      body.testMode = true;
-      postData = JSON.stringify(body);
+    const banana = fruits.find((f) => f.name === "Banana");
+    if (banana) {
+      banana.name = "Golden Banana";
     }
 
-    await route.continue({
-      headers,
-      postData,
+    fruits.push({
+      name: "Dragon Fruit",
+      id: 999,
+    });
+
+    await route.fulfill({
+      response,
+      json: fruits,
     });
   });
 
-  const response = await page.request.post("https://httpbin.org/post", {
-    data: {
-      product: "iPhone",
-      quantity: 1,
-    },
-  });
+  await page.goto("https://demo.playwright.dev/api-mocking");
 
-  const responseBody = await response.json();
-
-  console.log(responseBody);
+  await expect(page.getByText("Golden Banana", { exact: true })).toBeVisible();
+  await expect(page.getByText("Dragon Fruit", { exact: true })).toBeVisible();
+  await expect(page.getByText("Banana", { exact: true })).not.toBeVisible();
+  await expect(page.getByText("Strawberry", { exact: true })).toBeVisible();
 });
