@@ -1,7 +1,7 @@
 // tests/monitor-network.spec.ts
 import { test, expect } from '@playwright/test';
 
-test('monitor all network requests & responses (real demo app)', async ({ page }) => {
+test('monitor all network requests & responses', async ({ page }) => {
   page.on('request', request => {
     console.log('>>', request.method(), request.url());
   });
