@@ -4,8 +4,8 @@ import { test } from "@playwright/test";
 
 test("replay from HAR", async ({ page }) => {
   await page.routeFromHAR("network.har", {
-    url: "**/api/**", // optional filter
-    update: false, // true = record/update, false = pure replay
+    url: "**/api/**", 
+    update: false,
   });
 
   await page.goto("https://demo.playwright.dev/api-mocking");
