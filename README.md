@@ -16,10 +16,11 @@ This project contains the example code shown for performing Web Automation Testi
 - Browser, BrowserContext, and Page examples
 
 ## Learning Materials
-- [Playwright TypeScript Multiple Environments: A Complete Real-World Guide](https://medium.com/gitconnected/playwright-typescript-multiple-environments-a-complete-real-world-guide-4173bb136d68?sharedUserId=iamfaisalkhatri)
 - [Playwright Browser vs BrowserContext vs Page: Complete Guide with Examples](https://medium.com/gitconnected/playwright-browser-vs-browsercontext-vs-page-complete-guide-with-examples-b6c771c8d371?sharedUserId=iamfaisalkhatri)
+- [Playwright TypeScript Multiple Environments: A Complete Real-World Guide](https://medium.com/gitconnected/playwright-typescript-multiple-environments-a-complete-real-world-guide-4173bb136d68?sharedUserId=iamfaisalkhatri)
 - [How to Create Custom Fixtures in Playwright TypeScript: A Complete Practical Guide](https://medium.com/gitconnected/how-to-create-custom-fixtures-in-playwright-typescript-a-complete-practical-guide-4fa8b2fc2c82?sharedUserId=iamfaisalkhatri)
 - [How to use Authentication setup in Playwright TypeScript](https://medium.com/@iamfaisalkhatri/how-to-use-authentication-setup-in-playwright-typescript-f54bc68356f4?sharedUserId=iamfaisalkhatri)
+- [Network Interception with Playwright TypeScript](https://medium.com/@iamfaisalkhatri/network-interception-with-playwright-typescript-0dd32195848b?sharedUserId=iamfaisalkhatri)
 
 
 ## :video_camera: Tutorial Videos
@@ -55,4 +56,3 @@ mail me @ `mohammadfaisalkhatri@gmail.com` or ping me on [LinkedIn](https://www.
 ## :thought_balloon: Checkout tutorial blogs related to Software Testing on my 
 - [Medium Blog](https://medium.com/@iamfaisalkhatri)
 - [YouTube Channel](https://www.youtube.com/@faisalkhatriqa)
-
