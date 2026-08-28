@@ -10,10 +10,14 @@ This project contains the example code shown for performing Web Automation Testi
     - [todomvc](https://github.com/tastejs/todomvc)
     - [live-chat-playground](https://github.com/mfaisalkhatri/live-chat-playground)
     - [Parabank Demo Application](https://parabank.parasoft.com/parabank/index.htm)
+    - [LambdaTest E-Commerce Demo Playgroun](https://ecommerce-playground.lambdatest.io/)
 
 ## :hammer_and_wrench: Example Scenarios Covered 
 - Setting up Playwright to run tests on multiple environments
 - Browser, BrowserContext, and Page examples
+- Cross Browser, Parallel Testing, Workers, and Sharding
+- Network Interception
+- Authentication Setup for End to End Tests
 
 ## Learning Materials
 - [Playwright Browser vs BrowserContext vs Page: Complete Guide with Examples](https://medium.com/gitconnected/playwright-browser-vs-browsercontext-vs-page-complete-guide-with-examples-b6c771c8d371?sharedUserId=iamfaisalkhatri)
