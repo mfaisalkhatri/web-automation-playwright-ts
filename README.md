@@ -21,6 +21,7 @@ This project contains the example code shown for performing Web Automation Testi
 - [How to Create Custom Fixtures in Playwright TypeScript: A Complete Practical Guide](https://medium.com/gitconnected/how-to-create-custom-fixtures-in-playwright-typescript-a-complete-practical-guide-4fa8b2fc2c82?sharedUserId=iamfaisalkhatri)
 - [How to use Authentication setup in Playwright TypeScript](https://medium.com/@iamfaisalkhatri/how-to-use-authentication-setup-in-playwright-typescript-f54bc68356f4?sharedUserId=iamfaisalkhatri)
 - [Network Interception with Playwright TypeScript](https://medium.com/@iamfaisalkhatri/network-interception-with-playwright-typescript-0dd32195848b?sharedUserId=iamfaisalkhatri)
+- [Parallel Testing in Playwright with TypeScript: A Practical Guide to Workers & Cross-Browser Testing](https://medium.com/@iamfaisalkhatri/parallel-testing-in-playwright-with-typescript-a-practical-guide-to-workers-cross-browser-testing-a407f6e7e2c2?sharedUserId=iamfaisalkhatri)
 
 
 ## :video_camera: Tutorial Videos
