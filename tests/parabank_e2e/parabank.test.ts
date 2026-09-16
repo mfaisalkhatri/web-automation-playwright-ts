@@ -1,7 +1,7 @@
 import { test, expect } from "../../fixtures/app.fixture";
 import expectedText from "../../test-data/expected-text.json";
 
-test.describe.configure({ mode: "serial" });¸¸
+test.describe.configure({ mode: "serial" });
 test.describe("Parabank End to End tests", () => {
   let accountNumber: string;
   let toAccountNumber: string;
