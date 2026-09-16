@@ -1,37 +1,50 @@
-import { test as base } from '@playwright/test';
+import { test as base } from "@playwright/test";
 
-import { BasePage } from '../pages/parabank/base-page';
-import { RegistrationPage } from '../pages/parabank/registration-page';
-import { OpenNewAccountPage } from '../pages/parabank/open-new-account-page';
-import { UserData } from '../test-data/UserData';
+import { BasePage } from "../pages/parabank/base-page";
+import { RegistrationPage } from "../pages/parabank/registration-page";
+import { OpenNewAccountPage } from "../pages/parabank/open-new-account-page";
+import { UserData } from "../test-data/UserData";
+import { TransferFundsPage } from "../pages/parabank/transfer-funds-page";
+import { AccountsOverviewPage } from "../pages/parabank/accounts-overview-page";
 
 type AppFixtures = {
-    basePage: BasePage;
-    registrationPage: RegistrationPage;
-    openNewAccountPage: OpenNewAccountPage;
-    userData: UserData;
+  basePage: BasePage;
+  registrationPage: RegistrationPage;
+  openNewAccountPage: OpenNewAccountPage;
+  transferFundsPage: TransferFundsPage;
+  accountsOverviewPage: AccountsOverviewPage;
+  userData: UserData;
 };
 
 export const test = base.extend<AppFixtures>({
+  basePage: async ({ page }, use) => {
+    const basePage = new BasePage(page);
+    await use(basePage);
+  },
+  registrationPage: async ({ page }, use) => {
+    const registrationPage = new RegistrationPage(page);
+    await use(registrationPage);
+  },
 
-    basePage: async ({ page }, use) => {
-        const basePage = new BasePage(page);
-        await use(basePage);
-    },
-    registrationPage: async ({ page }, use) => {
-        const registrationPage = new RegistrationPage(page);
-        await use(registrationPage);
-    },
+  openNewAccountPage: async ({ page }, use) => {
+    const openNewAccountPage = new OpenNewAccountPage(page);
+    await use(openNewAccountPage);
+  },
 
-    openNewAccountPage: async ({ page }, use) => {
-        const openNewAccountPage = new OpenNewAccountPage(page);
-        await use(openNewAccountPage);
-    },
+  transferFundsPage: async ({ page }, use) => {
+    const transferFundsPage = new TransferFundsPage(page);
+    await use(transferFundsPage);
+  },
 
-    userData: async ({ }, use) => {
-        const userData = new UserData();
-        await use(userData);
-    },
+  accountsOverviewPage: async ({ page }, use) => {
+    const accountsOverviewPage = new AccountsOverviewPage(page);
+    await use(accountsOverviewPage);
+  },
+
+  userData: async ({}, use) => {
+    const userData = new UserData();
+    await use(userData);
+  },
 });
 
-export { expect } from '@playwright/test';
+export { expect } from "@playwright/test";

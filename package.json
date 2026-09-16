@@ -18,7 +18,8 @@
     "test-data-driven-json": "npx playwright test /tests/data-driven-test.spec.ts --project=chrome --headed",
     "test-shard-1/4": "npx playwright test tests/parallel_test_examples --shard=1/4",
     "test-shard-1/2": "npx playwright test tests/parallel_test_examples --shard=1/2",
-    "test-list": "npx playwright test tests/parallel_test_examples --list"
+    "test-list": "npx playwright test tests/parallel_test_examples --list",
+    "test:parabank-e2e": "npx playwright test tests/parabank_e2e/parabank.test.ts --project=qa"
 
   },
   "keywords": [],

@@ -40,27 +40,27 @@ trace: "on-first-retry",
 
   /* Configure projects for major browsers */
   projects: [
-    // {
-    //   name: "setup",
-    //   testMatch: /.*auth\.setup\.ts/,
-    //   use: {
-    //     baseURL: qa.baseURL,
-    //   },
-    // },
+    {
+      name: "setup",
+      testMatch: /.*auth\.setup\.ts/,
+      use: {
+        baseURL: qa.baseURL,
+      },
+    },
 
-    // {
-    //   name: "qa",
-    //   dependencies: ["setup"],
-    //   use: {
-    //     ...devices["Desktop Chrome"],
-    //     baseURL: qa.baseURL,
-    //     storageState: "playwright/.auth/user.json",
-    //   },
-    //   metadata: {
-    //     username: qa.username,
-    //     password: qa.password,
-    //   },
-    // },
+    {
+      name: "qa",
+      dependencies: ["setup"],
+      use: {
+        ...devices["Desktop Chrome"],
+        baseURL: qa.baseURL,
+        storageState: "playwright/.auth/user.json",
+      },
+      metadata: {
+        username: qa.username,
+        password: qa.password,
+      },
+    },
 
     // {
     //   name: "preprod",
