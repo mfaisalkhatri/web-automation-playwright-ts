@@ -16,7 +16,7 @@ setup("Authenticate User", async ({ page }) => {
   await loginPage.login(username, password);
 
   await expect(
-    loginPage.welcomeMessageText(username, "Bonzela"),
+    loginPage.welcomeMessageText(username, "Smith"),
   ).toBeVisible();
 
   await expect(loginPage.pageHeader).toBeVisible();

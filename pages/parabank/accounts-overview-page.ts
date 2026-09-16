@@ -6,7 +6,6 @@ export class AccountsOverviewPage extends BasePage {
   readonly pageHeader: Locator;
   readonly accountTable: Locator;
   readonly oldAccountNumber: Locator;
-  readonly newAccountNumber: Locator;
   readonly balance: Locator;
   readonly availableAmount: Locator;
 
@@ -24,12 +23,6 @@ export class AccountsOverviewPage extends BasePage {
       .locator("td")
       .nth(0)
       .first();
-    this.newAccountNumber = this.accountTable
-      .locator("tbody tr")
-      .nth(1)
-      .locator("td")
-      .nth(0)
-      .first();
     this.balance = this.accountTable
       .locator("tbody tr")
       .nth(1)
@@ -42,9 +35,16 @@ export class AccountsOverviewPage extends BasePage {
       .locator("td")
       .nth(2)
       .first();
+
   }
 
   async getOldAccountNumber(): Promise<string> {
     return this.oldAccountNumber.innerText();
   }
+  getNewAccountNumber(newAccountNumber: string): Locator {
+  return this.accountTable.getByRole("link", {
+    name: newAccountNumber,
+    exact: true,
+  });
+}
 }

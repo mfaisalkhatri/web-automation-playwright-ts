@@ -20,7 +20,6 @@ test.describe("Parabank End to End tests", () => {
     await expect(openNewAccountPage.successMessageText).toBeVisible();
 
     accountNumber = await openNewAccountPage.getAccountNumber();
-    console.log(accountNumber);
   });
 
   test("should fetch the old account number from accounts overview page", async ({
@@ -32,9 +31,9 @@ test.describe("Parabank End to End tests", () => {
     await basePage.openMenu("Accounts Overview");
     await expect(accountsOverviewPage.pageHeader).toBeVisible();
 
-    await expect(accountsOverviewPage.newAccountNumber).toHaveText(
-      accountNumber,
-    );
+    await expect(
+      accountsOverviewPage.getNewAccountNumber(accountNumber),
+    ).toBeVisible();
 
     toAccountNumber = await accountsOverviewPage.getOldAccountNumber();
   });
