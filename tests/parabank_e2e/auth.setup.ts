@@ -1,6 +1,6 @@
 import { test as setup, expect } from "@playwright/test";
-import { LoginPage } from "../pages/parabank/login-page";
-import { getEnv } from '../env/envloader';
+import { LoginPage } from "../../pages/parabank/login-page";
+import { getEnv } from '../../env/envloader';
 
 setup("Authenticate User", async ({ page }) => {
   const username:string = getEnv("PARABANK_USERNAME");
